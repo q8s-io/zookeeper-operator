@@ -8,8 +8,25 @@ image:
 domainName:
 labels: {}
 ports: []
+  # - containerPort: 2181
+  #   name: client
+  # - containerPort: 2888
+  #   name: quorum
+  # - containerPort: 8080
+  #   name: admin-server
 kubernetesClusterDomain: "cluster.local"
-
+probes:
+  readiness:
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    failureThreshold: 3
+    successThreshold: 1
+    timeoutSeconds: 10
+  liveness:
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    failureThreshold: 3
+    timeoutSeconds: 10
 pod:
   # labels: {}
   # nodeSelector: {}
