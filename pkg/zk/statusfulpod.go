@@ -38,7 +38,7 @@ func MakeStatefulPod(z *v1beta1.ZookeeperCluster) *statefulpodv1.StatefulPod {
 	podSpec := makeZkPodSpec(z, extraVolumes)
 	var port []corev1.ServicePort
 	port = append(port, corev1.ServicePort{
-		Port: 80,
+		Port: 2181,
 	})
 	return &statefulpodv1.StatefulPod{
 		TypeMeta: metav1.TypeMeta{
